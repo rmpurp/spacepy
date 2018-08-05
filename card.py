@@ -45,6 +45,9 @@ class Card:
                 return False
         return True
 
+    def __hash__(self):
+        return hash(self.my_uuid)
+
     @property
     def time_created(self):
         return self.modification_times['my_uuid']
