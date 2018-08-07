@@ -13,6 +13,13 @@ def calculate_easiness_delta(rating):
     return - 0.8 + 0.6 * rating - 0.1 * rating * rating
 
 
+def fuzzy_match(itr, prefix: str):
+    itr = list(itr)
+    potential_matches = list(filter(lambda x: x.startswith(prefix), itr))
+
+    return potential_matches
+
+
 def json_default(o):
     if isinstance(o, card.Card):
         as_dict = dict(o.__dict__)

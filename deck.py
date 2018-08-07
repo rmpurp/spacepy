@@ -11,6 +11,10 @@ class Deck(List[card.Card]):
         if cards:
             self.extend(cards)
 
+    def reviewable_cards(self):
+        return sorted(filter(lambda x: x.is_reviewable(), self),
+                      key=lambda x: x.unix_time_to_review)
+
 
 def create_test_deck():
     descriptions = ['the powerhouse of the cell',
